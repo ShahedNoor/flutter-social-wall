@@ -1,18 +1,63 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_wall/components/my_button.dart';
 import 'package:social_wall/components/my_textfield.dart';
 
-class RegisterPage extends StatelessWidget {
+import '../helper/helper_functions.dart';
+
+class RegisterPage extends StatefulWidget {
   final void Function()? onTap;
 
   RegisterPage({super.key, required this.onTap});
 
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
   // Text controller
   final TextEditingController usernameController = TextEditingController();
+
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
+
   final TextEditingController confirmPasswordController =
       TextEditingController();
+
+  // Register user
+  void registerUser() async {
+    // Show loading circle
+    showDialog(
+      context: context,
+      builder: (context) => const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+
+    // Check the password and confirm password match
+    if (passwordController.text != confirmPasswordController.text) {
+      Navigator.pop(context);
+
+      // Show error message to user
+      showErrorMessageToUser("Passwords don't match!", context);
+    } else {
+      // Try to create user
+      try {
+        // Create the user
+        UserCredential? userCredential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+                email: emailController.text, password: passwordController.text);
+        Navigator.pop(context);
+      } on FirebaseAuthException catch (e) {
+        // Por the circle progress indicator
+        Navigator.pop(context);
+
+        // Display error message to user
+        showErrorMessageToUser(e.code, context);
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +153,7 @@ class RegisterPage extends StatelessWidget {
               ),
 
               // Register button
-              MyButton(text: "Register", onTap: () {}),
+              MyButton(text: "Register", onTap: registerUser),
 
               const SizedBox(
                 height: 10,
@@ -120,7 +165,7 @@ class RegisterPage extends StatelessWidget {
                 children: [
                   const Text("Already have an account? "),
                   GestureDetector(
-                    onTap: onTap,
+                    onTap: widget.onTap,
                     child: const Text(
                       "Login Here!",
                       style: TextStyle(
