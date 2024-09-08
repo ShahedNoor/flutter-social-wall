@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
         centerTitle: true,
-        title: Text("Home Page"),
+        title: Text("H O M E"),
       ),
       drawer: MyDrawer(),
     );

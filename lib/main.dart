@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         "/loginOrRegister": (context) => const LoginOrRegister(),
         "/homePage": (context) => const HomePage(),
-        "/profilePage": (context) => const ProfilePage(),
+        "/profilePage": (context) => ProfilePage(),
         "/userPage": (context) => const UserPage(),
       },
     );
