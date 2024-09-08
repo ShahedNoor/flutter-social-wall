@@ -1,7 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
+
+  // Logout user
+  void logout() {
+    FirebaseAuth.instance.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +50,11 @@ class MyDrawer extends StatelessWidget {
                   leading: Icon(Icons.person),
                   title: Text("P R O F I L E"),
                   onTap: () {
-                    // If already in home page then just pop the context
+                    // Pop the context
                     Navigator.pop(context);
+
+                    // Navigate to profile page
+                    Navigator.pushNamed(context, '/profilePage');
                   },
                 ),
               ),
@@ -57,8 +66,11 @@ class MyDrawer extends StatelessWidget {
                   leading: Icon(Icons.people),
                   title: Text("U S E R S"),
                   onTap: () {
-                    // If already in home page then just pop the context
+                    // Pop the context
                     Navigator.pop(context);
+
+                    // Navigate to users page
+                    Navigator.pushNamed(context, '/userPage');
                   },
                 ),
               ),
@@ -72,8 +84,10 @@ class MyDrawer extends StatelessWidget {
               leading: Icon(Icons.logout),
               title: Text("L O G O U T"),
               onTap: () {
-                // If already in home page then just pop the context
+                // Pop the context
                 Navigator.pop(context);
+
+                logout();
               },
             ),
           ),
