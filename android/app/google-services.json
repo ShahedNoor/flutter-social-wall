@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "50402832118",
+    "project_id": "social-wall-sancbyt",
+    "storage_bucket": "social-wall-sancbyt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50402832118:android:4b066d6e46c199e83cc6d7",
+        "android_client_info": {
+          "package_name": "com.sancbyt.social_wall"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG9nuDOV2Pasb6eS4iPN1SYJ4VvG10sJg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
