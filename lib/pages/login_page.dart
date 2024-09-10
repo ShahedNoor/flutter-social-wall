@@ -21,9 +21,12 @@ class _LoginPageState extends State<LoginPage> {
 
   // Login method
   void loginUser() async {
+    // Save the current context
+    final currentContext = context;
+
     // Show circle progress indicator
     showDialog(
-      context: context,
+      context: currentContext,
       builder: (context) => const Center(
         child: CircularProgressIndicator(),
       ),
@@ -34,15 +37,18 @@ class _LoginPageState extends State<LoginPage> {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
 
-      // Pop the circle progress indicator
-      if (context.mounted) Navigator.pop(context);
+      // Pop the circle progress indicator if still mounted
+      if (currentContext.mounted) Navigator.pop(currentContext);
     }
 
     // If can't login then display an error
     on FirebaseAuthException catch (e) {
-      // Pop the circle progress indicator
-      Navigator.pop(context);
-      showErrorMessageToUser(e.code, context);
+      // Pop the circle progress indicator if still mounted
+      if (currentContext.mounted) Navigator.pop(currentContext);
+
+      if (currentContext.mounted) {
+        showErrorMessageToUser(e.code, currentContext);
+      }
     }
   }
 

@@ -28,6 +28,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   // Register user
   void registerUser() async {
+    final currentContext = context;
     // Show loading circle
     showDialog(
       context: context,
@@ -53,13 +54,15 @@ class _RegisterPageState extends State<RegisterPage> {
         // Create a user document and add to firestore
         createUserDocument(userCredential);
 
-        if (context.mounted) Navigator.pop(context);
+        if (currentContext.mounted) Navigator.pop(currentContext);
       } on FirebaseAuthException catch (e) {
         // Por the circle progress indicator
-        Navigator.pop(context);
+        if (currentContext.mounted) Navigator.pop(currentContext);
 
         // Display error message to user
-        showErrorMessageToUser(e.code, context);
+        if (currentContext.mounted) {
+          showErrorMessageToUser(e.code, currentContext);
+        }
       }
     }
   }
