@@ -11,7 +11,7 @@ class UserPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        title: Text("U S E R S"),
+        title: const Text("U S E R S"),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: StreamBuilder(
@@ -34,7 +34,7 @@ class UserPage extends StatelessWidget {
 
           // Show message if there no data in database
           if (snapshot.data == null) {
-            return Text("There is no data in the Database!");
+            return const Text("There is no data in the Database!");
           }
 
           // Get all user
@@ -42,7 +42,7 @@ class UserPage extends StatelessWidget {
 
           return Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Expanded(

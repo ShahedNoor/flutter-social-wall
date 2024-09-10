@@ -34,8 +34,8 @@ class MyDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 25.0, right: 25),
                 child: ListTile(
-                  leading: Icon(Icons.home),
-                  title: Text("H O M E"),
+                  leading: const Icon(Icons.home),
+                  title: const Text("H O M E"),
                   onTap: () {
                     // If already in home page then just pop the context
                     Navigator.pop(context);
@@ -47,8 +47,8 @@ class MyDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 25.0, right: 25),
                 child: ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text("P R O F I L E"),
+                  leading: const Icon(Icons.person),
+                  title: const Text("P R O F I L E"),
                   onTap: () {
                     // Pop the context
                     Navigator.pop(context);
@@ -63,8 +63,8 @@ class MyDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 25.0, right: 25),
                 child: ListTile(
-                  leading: Icon(Icons.people),
-                  title: Text("U S E R S"),
+                  leading: const Icon(Icons.people),
+                  title: const Text("U S E R S"),
                   onTap: () {
                     // Pop the context
                     Navigator.pop(context);
@@ -81,8 +81,8 @@ class MyDrawer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 25.0, right: 25, bottom: 25.0),
             child: ListTile(
-              leading: Icon(Icons.logout),
-              title: Text("L O G O U T"),
+              leading: const Icon(Icons.logout),
+              title: const Text("L O G O U T"),
               onTap: () {
                 // Pop the context
                 Navigator.pop(context);

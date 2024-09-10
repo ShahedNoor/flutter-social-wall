@@ -21,7 +21,7 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        title: Text("P R O F I L E"),
+        title: const Text("P R O F I L E"),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
@@ -63,7 +63,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   Text(
                     user!['username'],
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 24.0,
                       fontWeight: FontWeight.bold,
                     ),
@@ -78,7 +78,7 @@ class ProfilePage extends StatelessWidget {
               ),
             );
           } else {
-            return Text("No user data found!");
+            return const Text("No user data found!");
           }
         },
       ),

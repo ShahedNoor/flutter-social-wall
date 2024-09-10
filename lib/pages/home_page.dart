@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_wall/components/my_drawer.dart';
 import 'package:social_wall/components/my_list_tile.dart';
@@ -67,7 +66,7 @@ class HomePage extends StatelessWidget {
             builder: (context, snapshot) {
               // Show circular progress indicator
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Expanded(
+                return const Expanded(
                   child: Center(
                     child: CircularProgressIndicator(),
                   ),
@@ -79,8 +78,8 @@ class HomePage extends StatelessWidget {
 
               // If no data
               if (snapshot.data == null || posts.isEmpty) {
-                return Expanded(
-                  child: const Center(
+                return const Expanded(
+                  child: Center(
                     child: Padding(
                       padding: EdgeInsets.all(25.0),
                       child: Text(
