@@ -45,9 +45,35 @@ class ProfilePage extends StatelessWidget {
 
             return Center(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(user!['email']),
-                  Text(user!['username']),
+                  Container(
+                    padding: const EdgeInsets.all(25.0),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.primary,
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
+                    child: const Icon(
+                      Icons.person,
+                      size: 64,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 25.0,
+                  ),
+                  Text(
+                    user!['username'],
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    user!['email'],
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ),
+                  ),
                 ],
               ),
             );

@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
       darkTheme: darkMode,
       routes: {
         "/loginOrRegister": (context) => const LoginOrRegister(),
-        "/homePage": (context) => const HomePage(),
+        "/homePage": (context) => HomePage(),
         "/profilePage": (context) => ProfilePage(),
         "/userPage": (context) => const UserPage(),
       },
