@@ -1,6 +1,6 @@
 {
-    "name": "social_wall",
-    "short_name": "social_wall",
+    "name": "Social Wall",
+    "short_name": "Social Wall",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
